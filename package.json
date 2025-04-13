@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  
   "dependencies": {
     "@firebase/auth": "^1.10.0",
     "@firebase/firestore": "^4.7.10",
