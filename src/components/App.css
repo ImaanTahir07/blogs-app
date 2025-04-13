@@ -1,0 +1,427 @@
+:root {
+  --primary-color: #4361ee;
+  --primary-light: #e0e7ff;
+  --secondary-color: #3a0ca3;
+  --accent-color: #4895ef;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --gray-light: #f1f5f9;
+  --gray-medium: #e2e8f0;
+  --gray-dark: #64748b;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --info-color: #3b82f6;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: var(--gray-light);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Add this to your HTML head or main JS file */
+/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> */
+
+.App {
+  display: grid;
+  grid-template-rows: 80px auto;
+  grid-template-columns: 300px auto;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  box-shadow: var(--box-shadow);
+  grid-column: 1 / span 2;
+  padding: 0 2.5rem;
+  z-index: 20;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Poppins', sans-serif;
+}
+
+.auth-section {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.username {
+  font-weight: 500;
+  color: var(--dark-color);
+  font-size: 0.95rem;
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Navigation Styles */
+nav {
+  background-color: white;
+  padding: 1.75rem;
+  border-right: 1px solid var(--gray-medium);
+  overflow-y: auto;
+  position: sticky;
+  top: 80px;
+  height: calc(100vh - 80px);
+}
+
+.nav-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--gray-medium);
+  font-family: 'Poppins', sans-serif;
+}
+
+.article-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.article-item {
+  padding: 1rem 1.25rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid var(--gray-medium);
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.article-item:hover {
+  background-color: var(--primary-light);
+  transform: translateX(5px);
+  border-color: var(--primary-color);
+}
+
+.article-item.active {
+  background-color: var(--primary-light);
+  border-color: var(--primary-color);
+  font-weight: 500;
+  box-shadow: var(--box-shadow);
+}
+
+/* Article Content Styles */
+article {
+  padding: 2.5rem;
+  overflow-y: auto;
+  background-color: white;
+  margin: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  line-height: 1.8;
+  font-family: 'Poppins', sans-serif;
+}
+
+article h2 {
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+  font-size: 1.8rem;
+}
+
+/* Form Styles */
+form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ... (rest of your CSS remains the same, just ensure font-family is set to Poppins where needed) ... */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+  }
+
+  header {
+    padding: 1.25rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  article {
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .auth-section {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  article {
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 0;
+  }
+}
+
+/* Add these new styles to your existing CSS */
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding: 0.85rem 2.5rem 0.85rem 1rem;
+  border: 2px solid var(--gray-medium);
+  border-radius: var(--border-radius);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  transition: var(--transition);
+  width: 100%;
+  cursor: pointer;
+  background-color: white;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+/* Style for dropdown options */
+option {
+  padding: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Style for the first option (placeholder) */
+option[value=""] {
+  color: var(--gray-dark);
+}
+
+input[type="number"] {
+  max-width: 120px;
+}
+
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.tag-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tag-option input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+.tag-option label {
+  margin-bottom: 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.featured-badge {
+  background-color: var(--warning-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.article-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: var(--gray-dark);
+  font-size: 0.9rem;
+}
+
+.category-badge {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.read-time {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.read-time::before {
+  content: "⏱️";
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  background-color: var(--gray-light);
+  color: var(--dark-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+}
+
+/* Textarea Styles (matches text input) */
+.form-group textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 0.85rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: white;
+  border: 2px solid var(--gray-medium);
+  border-radius: var(--border-radius);
+  resize: vertical;
+  transition: var(--transition);
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+/* Placeholder styling */
+.form-group textarea::placeholder {
+  color: var(--gray-dark);
+  opacity: 0.7;
+}
+
+/* Scrollbar styling (for Chrome/Safari) */
+.form-group textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.form-group textarea::-webkit-scrollbar-track {
+  background: var(--gray-light);
+  border-radius: 4px;
+}
+
+.form-group textarea::-webkit-scrollbar-thumb {
+  background: var(--gray-medium);
+  border-radius: 4px;
+}
+
+.form-group textarea::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-dark);
+}
